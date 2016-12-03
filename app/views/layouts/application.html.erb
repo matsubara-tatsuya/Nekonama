@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Workspace</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container">
+    <div id="logo"><%= link_to "ねこ生", root_path %></div>
+    <ul class="header-right">
+      <li><%= link_to "Top", root_path %></li>
+      <li><%= link_to "About", about_path %></li>
+      <li><%= link_to "Contact", contact_path %></li>
+      <li><%= link_to "会員登録", member_path %></li>
+    </ul>
+  </div>
+</header>
+
+
+<%= yield %>
+
+</body>
+</html>
