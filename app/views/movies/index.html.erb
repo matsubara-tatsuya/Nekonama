@@ -1,0 +1,11 @@
+<h1>動画の一覧</h1>
+<ul class="movies">
+  <% @movie.each do |movie| %>
+    <li>
+      <p>タイトル</p>
+      <span class="content">
+          <%= link_to movie.room_name, movie_path(movie.id) %>
+      </span>
+    </li>
+  <% end %>
+</ul>

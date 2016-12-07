@@ -1,0 +1,7 @@
+<h1>投稿動画を編集する</h1>
+<%= form_tag update_movie_path(@movie.id), method: 'patch' do %>
+
+  <%= text_field_tag :room_name, @movie.room_name %>
+  <%= text_area_tag :detail, @movie.detail %>
+  <%= submit_tag "保存" %>
+<% end %>
