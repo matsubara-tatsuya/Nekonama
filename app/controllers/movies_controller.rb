@@ -13,6 +13,7 @@ class MoviesController < ApplicationController
   
   def index
     @movie = Movie.all
+    @topmessage = "リアルタイムねこねこ一覧"
   end  
   
   def show
