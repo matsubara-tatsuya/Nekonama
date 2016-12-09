@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
+  get 'movies/new'
   get 'home/contact'
-
+  post '/movies' => 'movies#create'
+  get '/movies' => 'movies#index'
+  get '/movies/:id' => "movies#show", as: 'movie'
   root 'home#top'
   get '/about' => 'home#about'
   get '/contact' => 'home#contact'
   get '/member' => 'home#member'
-  
-  
+  get  '/movies/:id/edit' =>"movies#edit", as: 'edit_movie'
+  patch  '/movies/:id' =>"movies#update", as: 'update_movie'
+  delete '/movies/:id' => 'movies#destroy', as: 'destroy_movie'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

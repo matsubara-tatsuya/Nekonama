@@ -1,0 +1,12 @@
+<h1>Movie#new</h1>
+<p>Find me in app/views/movies/new.html.erb</p>
+<h1>動画再生する</h1>
+
+<%= form_tag movies_path do %>
+  動画タイトル
+  <input type='text' name='room_name' class='form-control title-field'>
+  動画内容
+  <textarea name='detail' class='form-control content-field'></textarea>
+  <input type="submit" value="動画投稿" class="btn primary-btn">
+<% end %>
+

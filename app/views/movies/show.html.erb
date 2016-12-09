@@ -1,0 +1,8 @@
+<h2>タイトル</h2>
+<p><%= @movie.room_name %></p>
+<h2>内容</h2>
+<p><%= @movie.detail %></p>
+
+<!-- editアクションへのリンクを作成-->
+<%= link_to "編集", edit_movie_path(@movie.id), class: "btn edit-btn" %>
+<%= link_to "削除", destroy_movie_path(@movie.id), method: "delete", class: "btn destroy-btn", "data-confirm" => "本当に削除します？" %>
