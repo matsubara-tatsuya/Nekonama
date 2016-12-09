@@ -1,6 +1,8 @@
 class MoviesController < ApplicationController
+  
   def new
   end
+  
   def create
     @movie = Movie.new
     @movie.room_name= params[:room_name]
@@ -28,9 +30,12 @@ class MoviesController < ApplicationController
     @movie.save
     redirect_to movie_path(@movie.id)
   end
+  
   def destroy
     @movie = Movie.find(params[:id])
     @movie.destroy
+
     redirect_to movies_path
   end
+  
 end
