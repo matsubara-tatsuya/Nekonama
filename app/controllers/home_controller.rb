@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
  
   def top
-    @message = "ねこねこなま動画をここにペタペタっと"
+    @message = "ねこねこたち"
   end
  
   def about 

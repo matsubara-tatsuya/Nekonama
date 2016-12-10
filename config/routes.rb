@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   post '/movies' => 'movies#create'
   get '/movies' => 'movies#index'
   get '/movies/:id' => "movies#show", as: 'movie'
-  root 'home#top'
+  root 'movies#index'
   get '/about' => 'home#about'
   get '/contact' => 'home#contact'
   get '/member' => 'home#member'

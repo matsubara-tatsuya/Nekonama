@@ -1,10 +1,12 @@
-<h1>動画の一覧</h1>
+<h1><%= @top_message %></h1>
 <ul class="movies">
   <% @movie.each do |movie| %>
     <li>
       <p>タイトル</p>
       <span class="content">
-          <%= link_to movie.room_name, movie_path(movie.id) %>
+          <%= link_to movie.room_name, movie_path(movie.id)%>
+          <iframe width="560" height="315" src="<%= movie.room_name %>?autoplay=1" frameborder="0" allowfullscreen></iframe>
+          
       </span>
     </li>
   <% end %>
