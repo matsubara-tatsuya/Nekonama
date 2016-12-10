@@ -1,8 +1,9 @@
-<h2>タイトル</h2>
-<p><%= @movie.room_name %></p>
-<iframe width="560" height="315" src="<%= @movie.room_name %>?autoplay=1 " autoplay="1" frameborder="0" allowfullscreen></iframe>
+<h2><%= @movie.room_name %></h2>
 <h2>詳細</h2>
 <p><%= @movie.detail %></p>
+
+<!-- ビデオ表示 -->
+<%= render 'movies/video' %>
 
 <!-- editアクションへのリンクを作成-->
 <%= link_to "編集", edit_movie_path(@movie.id), class: "btn edit-btn" %>

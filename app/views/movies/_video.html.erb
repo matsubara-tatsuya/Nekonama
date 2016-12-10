@@ -1,0 +1,55 @@
+<!-- ビデオ表示部分 -->
+<div id="streams"></div>
+
+<!-- 動画配信用ライブラリ -->
+<script src="https://skyway.io/dist/0.3/peer.min.js"></script>
+<script src="https://skyway.io/dist/multiparty.min.js"></script>
+<style> video { width:400px; } </style>
+<!-- 動画配信/表示スクリプト -->
+<script>
+  // MultiParty インスタンスを生成
+  multiparty = new MultiParty( {
+    "key": "0fe8be4c-9951-46dc-b374-65be32ab076d",  /* SkyWay keyを指定 */
+    "room":  "room_<%= @movie.id.to_s %>" /* room名はroom_動画IDとする*/
+  });
+
+  var broadcaster_id = "";
+
+  // Skywayサーバへの接続完了時の処理
+  multiparty.on('my_ms', function(video) {
+    console.log("SkyWayサーバへの接続完了");
+    // peerが居ないならば自分自身の配信を開始
+    multiparty.listAllPeers( function(peerIds) {
+      if(peerIds.length == 0) {
+        // 自分のvideoを表示
+        console.log("配信者による映像配信開始");
+        console.log(video);
+        var vNode = MultiParty.util.createVideoNode(video);
+        $(vNode).appendTo("#streams");
+      } else {
+        // 配信者のビデオを表示
+        console.log("配信者のpeer_idを保存");
+        broadcaster_id = peerIds[0];
+        console.log("配信者のpeer_id：" + broadcaster_id);
+      }
+    });
+  // 他のPeerが接続した場合の処理
+  }).on('peer_ms', function(video) {
+    // 配信者からの接続の場合のみ動画表示
+    if (video.id == broadcaster_id) {
+      console.log("配信者の映像を表示");
+      var vNode = MultiParty.util.createVideoNode(video);
+      $(vNode).appendTo("#streams");
+    } else {
+      // do nothing
+    }
+  // 他のPeerが切断した場合の処理
+  }).on('ms_close', function(peer_id) {
+    // peerが切れたら、対象のvideoノードを削除する
+    $("#"+peer_id).remove();
+  })
+
+  // サーバとpeerに接続
+  multiparty.start()
+
+</script>
