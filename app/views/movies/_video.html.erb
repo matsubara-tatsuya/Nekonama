@@ -26,10 +26,16 @@
         console.log(video);
         var vNode = MultiParty.util.createVideoNode(video);
         $(vNode).appendTo("#streams");
+        console.log("/add_broadcaster_id/<%= @movie.id %>/" + video.id);
+        // 配信者IDをDB保存
+        $.ajax({
+            url: "/add_broadcaster_id/<%= @movie.id %>/" + video.id,
+            type: "POST"
+        });
       } else {
         // 配信者のビデオを表示
         console.log("配信者のpeer_idを保存");
-        broadcaster_id = peerIds[0];
+        broadcaster_id = "<%= @movie.broadcaster_id %>";
         console.log("配信者のpeer_id：" + broadcaster_id);
       }
     });
@@ -48,6 +54,8 @@
     // peerが切れたら、対象のvideoノードを削除する
     $("#"+peer_id).remove();
   })
+
+  // 
 
   // サーバとpeerに接続
   multiparty.start()
