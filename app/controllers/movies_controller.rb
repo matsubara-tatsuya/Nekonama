@@ -38,5 +38,12 @@ class MoviesController < ApplicationController
 
     redirect_to movies_path
   end
+
+  def add_broadcaster_id
+    movie = Movie.find(params[:movie_id])
+    movie.broadcaster_id = params[:broadcaster_id]
+    movie.save
+    render movie_path(movie)
+  end
   
 end
