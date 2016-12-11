@@ -1,14 +1,26 @@
-<h1><%= @top_message %></h1>
-<ul class="movies">
-  <% @movie.each do |movie| %>
-    <li>
-      <p>タイトル</p>
-      <span class="content">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/css/swiper.min.css">
+<div class="swiper-container">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    <% @movie.each do |movie| %>
+      <div class="swiper-slide">
+        <p>タイトル</p>
+        <span class="content">
           <%= link_to movie.room_name, movie_path(movie.id)%>
-          <!-- <iframe width="560" height="315" src="<%#= movie.room_name %>?autoplay=1" frameborder="0" allowfullscreen></iframe> -->
           <iframe width="560" height="315" src="<%= movie.video_url %>" frameborder="0" allowfullscreen></iframe>
-          
-      </span>
-    </li>
-  <% end %>
-</ul>
+        </span>
+      </div>
+    <% end %>
+  </div>
+  <!-- ページネーション -->
+  <div class="swiper-pagination"></div>
+
+  <!-- ナビゲーションボタン -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+  <!-- スクロールバー -->
+  <div class="swiper-scrollbar"></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/js/swiper.min.js"></script>
