@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'movies/new'
   get 'home/contact'
+  get '/top'=> 'home#top'
   post '/movies' => 'movies#create'
   get '/movies' => 'movies#index'
   get '/movies/:id' => "movies#show", as: 'movie'
