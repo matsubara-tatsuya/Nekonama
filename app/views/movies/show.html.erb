@@ -3,8 +3,9 @@
 <p><%= @movie.detail %></p>
 
 <!-- ビデオ表示 -->
-<%= render 'movies/video' %>
+<iframe width="560" height="315" src="<%= @movie.video_url %>" frameborder="0" allowfullscreen></iframe>
 
+<br/>
 <!-- editアクションへのリンクを作成-->
 <%= link_to "編集", edit_movie_path(@movie.id), class: "btn edit-btn" %>
 <%= link_to "削除", destroy_movie_path(@movie.id), method: "delete", class: "btn destroy-btn", "data-confirm" => "本当に削除します？" %>

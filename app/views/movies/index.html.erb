@@ -6,10 +6,14 @@
     <% @movie.each do |movie| %>
       <div class="swiper-slide">
         <p>タイトル</p>
-        <span class="content">
-          <%= link_to movie.room_name, movie_path(movie.id)%>
-          <iframe width="560" height="315" src="<%= movie.video_url %>" frameborder="0" allowfullscreen></iframe>
-        </span>
+        <div class="content">
+          <div>
+            <%= link_to movie.room_name, movie_path(movie.id)%>
+          </div>
+          <div>
+            <iframe width="560" height="315" src="<%= movie.video_url %>" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
       </div>
     <% end %>
   </div>

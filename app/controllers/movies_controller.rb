@@ -23,7 +23,7 @@ class MoviesController < ApplicationController
   def show_video
     @movie = Movie.find(params[:id])
     respond_to do |format|
-      format.html { render :layout => nil }
+      format.html { render :layout => "plane" }
     end
   end
 
