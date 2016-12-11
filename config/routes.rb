@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post '/movies' => 'movies#create'
   get '/movies' => 'movies#index'
   get '/movies/:id' => "movies#show", as: 'movie'
+  get '/movies/:id/video' => "movies#show_video", as: 'movie_video'
   root 'movies#index'
   get '/about' => 'home#about'
   get '/contact' => 'home#contact'

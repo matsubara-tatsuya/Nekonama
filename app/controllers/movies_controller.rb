@@ -19,6 +19,13 @@ class MoviesController < ApplicationController
   def show
     @movie = Movie.find(params[:id])
   end
+  
+  def show_video
+    @movie = Movie.find(params[:id])
+    respond_to do |format|
+      format.html { render :layout => nil }
+    end
+  end
 
   def edit
     @movie = Movie.find(params[:id])
