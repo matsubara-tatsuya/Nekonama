@@ -9,8 +9,11 @@
 <body>
 
 <header class="navbar">
+  <img src="/neko_logo.png" width="115" style="float: left;margin-left: 50px;margin-top: 17px;">
   <div class="container">
-    <div id="logo"><%= link_to "ねこ生", root_path %></div>
+    <div id="logo">
+      <%= link_to "ねこ生", root_path %>
+    </div>
     <ul class="header-right">
       <li><%= link_to "配信猫一覧", root_path %></li>
       <li><%= link_to "新規配信", movies_new_path %></li>
